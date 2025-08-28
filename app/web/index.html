@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Librarian</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="title">📚 Smart Librarian</div>
+      <div class="controls">
+        <select id="topK" title="How many books to consider">
+          <option value="3" selected>Top-3</option>
+          <option value="5">Top-5</option>
+          <option value="8">Top-8</option>
+        </select>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="themeLabel">Light</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="card__body">
+        <div class="row">
+          <label for="q">Ask for a recommendation</label>
+          <textarea id="q" placeholder="e.g., I want a book about friendship and magic"></textarea>
+        </div>
+
+        <div class="actions">
+          <!-- Chip buttons (now same look as other buttons) -->
+          <div class="chipbar" role="group" aria-label="Quick topics">
+            <button type="button" class="btn btn-secondary" data-fill="A hopeful fantasy adventure">Fantasy</button>
+            <button type="button" class="btn btn-secondary" data-fill="A story about friendship and courage">Friendship</button>
+            <button type="button" class="btn btn-secondary" data-fill="Post-apocalyptic survival with strong emotions">Post-apocalyptic</button>
+            <button type="button" class="btn btn-secondary" data-fill="Classic literature exploring justice and empathy">Classic</button>
+          </div>
+
+          <div class="btn-group">
+            <button class="icon-btn" id="sttBtn" title="Speech to text">
+              🎤 <span class="sr">Start voice input</span>
+            </button>
+            <button class="icon-btn" id="ttsBtn" title="Speak last answer">
+              🔊 <span class="sr">Read the last answer</span>
+            </button>
+            <button class="btn btn-secondary" id="clearBtn">Clear</button>
+            <button class="btn btn-primary" id="askBtn">Ask</button>
+          </div>
+        </div>
+
+        <div class="log" id="log" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <p class="note">Tip: Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> to send</p>
+  </main>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

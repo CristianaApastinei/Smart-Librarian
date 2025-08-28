@@ -1,0 +1,15 @@
+# Setup Instructions
+python -m venv .venv 
+.venv\Scripts\Activate.ps1
+
+
+# Install the requirements
+pip install -r requirements.txt
+
+
+# Ingest the books
+python scripts/ingest.py
+
+
+# Run the API
+uvicorn app.server:app --reload
